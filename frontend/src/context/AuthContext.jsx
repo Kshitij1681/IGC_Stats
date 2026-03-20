@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext(null);
+const Base = `${import.meta.env.VITE_SERVER_URL}`; // for production
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -12,7 +13,7 @@ export const AuthProvider = ({ children }) => {
       const savedToken = localStorage.getItem('ignou_token');
       if (!savedToken) { setLoading(false); return; }
       try {
-        const res = await fetch('/api/auth/me', {
+        const res = await fetch(`${Base}/api/auth/me`, {
           headers: { Authorization: `Bearer ${savedToken}` }
         });
         const data = await res.json();
@@ -34,7 +35,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (username, password) => {
-    const res = await fetch('/api/auth/login', {
+    const res = await fetch(`${Base}/api/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password })
