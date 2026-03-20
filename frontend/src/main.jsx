@@ -6,5 +6,6 @@ import './index.css'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
+    {console.log(import.meta.env.VITE_SERVER_URL)}
   </React.StrictMode>,
 )
