@@ -84,7 +84,7 @@ export default function AdminLoginPage() {
 
           <div className="stats-divider my-6" />
           <p className="text-center text-xs text-slate-600 font-mono">
-            Protected route · IGNOU Cricket Club 2024
+            Protected route · IGNOU Cricket Club {new Date().getFullYear()}
           </p>
         </div>
 
