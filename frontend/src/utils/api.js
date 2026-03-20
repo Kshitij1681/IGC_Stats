@@ -1,4 +1,5 @@
-const BASE = '/api';
+// const BASE = '/api'; (for development)
+const BASE = `${import.meta.env.VITE_SERVER_URL}/api`;
 
 const getHeaders = (token, isJson = true) => {
   const h = {};
